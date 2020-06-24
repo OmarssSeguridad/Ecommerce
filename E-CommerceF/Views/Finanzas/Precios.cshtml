@@ -1,0 +1,78 @@
+﻿@model IEnumerable<E_CommerceF.Models.HISTORIAL_PRECIO>
+
+@{
+    ViewBag.Title = "Precios";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header border-0">
+                    <h3 class="mb-0 text-center">Autorizaciones de Precios</h3>
+                </div>
+                <!-- Light table -->
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="sort" data-sort="name">Precios Nuevos</th>
+                                <th scope="col" class="sort" data-sort="budget">Fecha de alta</th>
+                                <th scope="col" class="sort" data-sort="status">Precio Actual</th>
+                                <th scope="col" class="sort" data-sort="status">Precio Nuevo</th>
+                                <th scope="col" class="sort" data-sort="status">Historial</th>
+                                <th scope="col">Status</th>
+
+                                <th scope="col">Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @foreach (var item in Model)
+                            {
+
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">@item.PRODUCTO.NOMBRE</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    <span class="name mb-0 text-sm">@item.PRODUCTO.CREATED_AT</span>
+                                </td>
+                                <td class="budget">
+                                    $ @item.PRODUCTO.PRECIO
+                                </td>
+                                <td class="budget">
+                                    $ @item.PRECIO
+                                </td>
+                                <td class="text-right">
+                                    <span class="name mb-0 text-sm"><a href="@Url.Action("PreciosHistorial","Finanzas", new {id = item.FK_PRODUCTOS})">Ver historial</a></span>
+                                </td>
+                                <td>
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-gradient-yellow"></i>
+                                        <span class="status">Por Autorizar</span>
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <span class="name mb-0 text-sm"><a href="@Url.Action("PreciosDetalles","Finanzas", new {id = item.Id})">Ver detalle</a></span>
+                                </td>
+                            </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Card footer -->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

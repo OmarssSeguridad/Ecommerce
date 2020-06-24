@@ -1,0 +1,74 @@
+﻿@model IEnumerable<E_CommerceF.Models.HISTORIAL_PRECIO>
+
+@{
+    ViewBag.Title = "PreciosHistorial";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header border-0">
+                    <h3 class="mb-0 text-center">Historico del producto</h3>
+                </div>
+                <!-- Light table -->
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="sort" data-sort="name">ID Producto</th>
+                                <th scope="col" class="sort" data-sort="name">Produto</th>
+                                <th scope="col" class="sort" data-sort="budget">Precio Anterior</th>
+                                <th scope="col" class="sort" data-sort="status">Precio Nuevo</th>
+                                <th scope="col">Razon</th>
+                                <th scope="col" class="sort" data-sort="status">Fecha Actualizacion</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @foreach (var item in Model)
+                            {
+
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">@item.PRODUCTO.ID</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    <span class="name mb-0 text-sm">@item.PRODUCTO.NOMBRE</span>
+                                </td>
+                                <td>
+                                    <span class="name mb-0 text-sm">$ @item.PRECIOANTERIOR</span>
+                                </td>
+                                <td class="budget">
+                                    $ @item.PRECIO
+                                </td>
+                                <td class="budget">
+                                     @item.RAZON
+                                </td>
+                                <td class="budget">
+                                    @item.FECHA_ACTUALIZACION
+                                </td>
+                            </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Card footer -->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

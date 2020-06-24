@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f93d210623b14533aec6a90f6ac2ec71" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="ecommerceModel.AGENTE_VENTA" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.ALMACEN" Width="1.5" PointX="8.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.CATEGORIA" Width="1.5" PointX="8.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.CHAT" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.DEVOLUCION_PEDIDO" Width="1.5" PointX="10.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.DIRECCION" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.FACTURA" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.FACTURA_PRODUCTO" Width="1.5" PointX="12.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.IMAGEN_PRODUCTO" Width="1.5" PointX="12.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.METODO_PAGO" Width="1.5" PointX="6" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.ORDEN" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.ORDEN_PRODUCTO" Width="1.5" PointX="10.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.PEDIDO_PROVEEDOR" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.PRODUCTO" Width="2.25" PointX="10.125" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.PRODUCTO_PEDIDO" Width="2.5" PointX="13.375" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.PRODUCTO_PROMOCION" Width="1.5" PointX="15.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.PRODUCTO_PROVEEDOR" Width="2.5" PointX="10.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.PROMOCION" Width="1.5" PointX="13.5" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.PROVEEDOR" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.ROL" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.TIPO_PROMOCION" Width="1.5" PointX="13.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.USUARIO" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="ecommerceModel.FK__PRODUCTO__FK_ALM__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__PRODUCTO__FK_CAT__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__CHAT__FK_DESTINA__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__CHAT__FK_REMITEN__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__DEVOLUCIO__FK_PE__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__DEVOLUCIO__FK_PR__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__DIRECCION__FK_CL__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__FACTURA__FK_PEDI__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__FACTURA_P__FK_FA__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__FACTURA_P__FK_PR__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__IMAGEN_PR__FK_PR__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__ORDEN__FK_METODO__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__ORDEN__FK_CLIENT__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__ORDEN_PRO__FK_OR__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__ORDEN_PRO__FK_PR__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__PEDIDO_PR__FK_PR__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__PEDIDO_PR__FK_US__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__PRODUCTO___FK_PE__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__PRODUCTO___FK_PR__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__PRODUCTO___FK_PR__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__PRODUCTO___FK_PR__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__PRODUCTO___FK_TI__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK__USUARIO__FK_ID_R__276EDEB3" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ecommerceModel.HISTORIAL_PRECIO" Width="1.5" PointX="12.75" PointY="24.25" />
+        <AssociationConnector Association="ecommerceModel.FK__HISTORIAL__FK_PR__02FC7413" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,165 @@
+﻿@model IEnumerable<E_CommerceF.Models.PEDIDO_PROVEEDOR>
+
+@{
+    ViewBag.Title = "BalanceGeneral";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script>
+    function buscar(){document.getElementById('obj1').style.display ='inline';
+}
+</script>
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card header -->
+
+                <div class="card-header border-0 text-center align-items-center">
+                    <h3 class="mb-0 text-center">Balance General</h3>
+                    <form action="" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row ">
+                                    <label class="col-sm-4 col-form-label">Fecha Inicial</label>
+                                    <div class="col-sm-4">
+                                        <input name="FechaI" type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Fecha Final</label>
+                                    <div class="col-sm-4">
+                                        <input name="FechaF" type="date" class="form-control">
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+
+                                            <button type="button" onclick="buscar()" class="btn btn-primary">buscar</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-responsive" id="obj1" style="display: none;">
+                    <table class="table align-items-center table-flush">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="sort" data-sort="name"></th>
+                                <th scope="col" class="sort" data-sort="budget"></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="card" style="width: 28rem;">
+                                        <div class="card-header">
+                                            Compras
+                                        </div>
+                                        <div class="card-body">
+                                            <blockquote class="blockquote mb-0">
+                                                <div class="table-responsive">
+                                                    <table class="table align-items-center table-flush">
+                                                        <thead class="thead-light">
+                                                            <tr>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="list">
+                                                           @foreach (var item in Model)
+                                                           {
+                                                                <tr>
+                                                                    <th scope="row">
+                                                                        <div class="media align-items-center">
+                                                                            <div class="media-body">
+                                                                                <span class="name mb-0 text-sm">Transaccion @item.FECHA</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <td>
+                                                                        <span class="name mb-0 text-sm">$ @item.PRECIO_TOTAL</span>
+                                                                    </td>
+                                                                </tr>
+                                                           }
+                                                            <tr>
+                                                                <th scope="row">
+                                                                    <div class="media align-items-center">
+                                                                        <div class="media-body">
+                                                                            <span class="name mb-0 text-sm"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </th>
+                                                                <td>
+                                                                    <span class="name mb-0 text-sm">$ @ViewBag.Total</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="card" style="width: 28rem;">
+                                        <div class="card-header">
+                                            Ventas
+                                        </div>
+                                        <div class="card-body">
+                                            <blockquote class="blockquote mb-0">
+                                                <div class="table-responsive">
+                                                    <table class="table align-items-center table-flush">
+                                                        <thead class="thead-light">
+                                                            <tr>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="list">
+                                                            @foreach (var item1 in ViewBag.Compras)
+                                                            {
+
+                                                            <tr>
+                                                                <th scope="row">
+                                                                    <div class="media align-items-center">
+                                                                        <div class="media-body">
+                                                                            <span class="name mb-0 text-sm">Transaccion @item1.CREATED_AT </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </th>
+                                                                <td>
+                                                                    <span class="name mb-0 text-sm">$ @item1.TOTAL </span>
+                                                                </td>
+                                                            </tr>
+                                                            }
+                                                            <tr>
+                                                                <th> </th>
+                                                                <td>$ @ViewBag.TotalCompras</td>
+                                                            </tr>
+
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

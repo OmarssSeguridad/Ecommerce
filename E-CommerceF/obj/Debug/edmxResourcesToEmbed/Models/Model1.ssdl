@@ -1,0 +1,670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ecommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AGENTE_VENTA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CRATED_AT" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ALMACEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CAPACIDAD" Type="int" />
+    <Property Name="CREATED_AT" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CATEGORIA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACTIVO" Type="int" Nullable="false" />
+    <Property Name="CREATED_AT" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CHAT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MENSAJE" Type="nvarchar" MaxLength="100" />
+    <Property Name="FK_DESTINATARIO" Type="int" Nullable="false" />
+    <Property Name="FK_REMITENTE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEVOLUCION_PEDIDO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CANTIDAD" Type="int" Nullable="false" />
+    <Property Name="RAZON" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CRATED_AT" Type="datetime" Nullable="false" />
+    <Property Name="FK_PEDIDO_PROVEEDOR" Type="int" Nullable="false" />
+    <Property Name="FK_PRODUCTO_PEDIDO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DIRECCION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CIUDAD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MUNICIPIO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="COLONIA" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CALLE" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CP" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="NUMERO" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ACTIVO" Type="int" Nullable="false" />
+    <Property Name="CREATED_AT" Type="datetime" Nullable="false" />
+    <Property Name="FK_CLIENTE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FACTURA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PAGO_TOTAL" Type="float" Nullable="false" />
+    <Property Name="FECHA_PAGO" Type="date" Nullable="false" />
+    <Property Name="CRATED_AT" Type="datetime" Nullable="false" />
+    <Property Name="FK_PEDIDO_PROVEEDOR" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FACTURA_PRODUCTO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CRATED_AT" Type="datetime" Nullable="false" />
+    <Property Name="FK_FACTURA" Type="int" Nullable="false" />
+    <Property Name="FK_PRODUCTO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HISTORIAL_PRECIO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FK_PRODUCTOS" Type="int" Nullable="false" />
+    <Property Name="PRECIO" Type="float" Nullable="false" />
+    <Property Name="FECHA_ACTUALIZACION" Type="date" />
+    <Property Name="STATUS" Type="int" Nullable="false" />
+    <Property Name="RAZON" Type="nchar" MaxLength="255" />
+    <Property Name="OBSERVACIÓN" Type="nchar" MaxLength="255" />
+    <Property Name="FECHA_SOLITUD" Type="nchar" MaxLength="10" />
+    <Property Name="PRECIOANTERIOR" Type="float" />
+  </EntityType>
+  <EntityType Name="IMAGEN_PRODUCTO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IMAGEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="PRINCIPAL" Type="int" Nullable="false" />
+    <Property Name="FK_PRODUCTO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="METODO_PAGO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TOTAL" Type="float" Nullable="false" />
+    <Property Name="SUBTOTAL" Type="float" Nullable="false" />
+    <Property Name="PAGADO" Type="int" />
+    <Property Name="DESCUENTO" Type="float" />
+    <Property Name="NUMERO_GUIA" Type="nvarchar" MaxLength="100" />
+    <Property Name="CREATED_AT" Type="datetime" Nullable="false" />
+    <Property Name="FK_CLIENT" Type="int" Nullable="false" />
+    <Property Name="FK_METODO_PAGO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDEN_PRODUCTO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRECIO" Type="float" Nullable="false" />
+    <Property Name="CANTIDAD" Type="int" Nullable="false" />
+    <Property Name="FK_PRODUCTO" Type="int" Nullable="false" />
+    <Property Name="FK_ORDEN" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEDIDO_PROVEEDOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRECIO_TOTAL" Type="float" Nullable="false" />
+    <Property Name="PAGADO" Type="int" />
+    <Property Name="AUTORIZADO" Type="int" />
+    <Property Name="FECHA" Type="date" Nullable="false" />
+    <Property Name="ACTIVO" Type="int" />
+    <Property Name="CRATED_AT" Type="datetime" Nullable="false" />
+    <Property Name="FK_PROVEEDOR" Type="int" Nullable="false" />
+    <Property Name="FK_USUARIO" Type="int" Nullable="false" />
+    <Property Name="RAZON" Type="nvarchar" MaxLength="100" />
+    <Property Name="OBSERVACIONES" Type="nchar" MaxLength="255" />
+    <Property Name="FECHA_ACTUALIZACION" Type="date" />
+  </EntityType>
+  <EntityType Name="PRODUCTO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="text" />
+    <Property Name="CANTIDAD" Type="int" />
+    <Property Name="PRECIO" Type="float" />
+    <Property Name="PUNTO_REORDEN" Type="int" />
+    <Property Name="GARANTIA" Type="date" />
+    <Property Name="TIENDA" Type="int" />
+    <Property Name="AUTORIZADO" Type="int" />
+    <Property Name="COSTO" Type="float" />
+    <Property Name="RAZON" Type="nvarchar" MaxLength="100" />
+    <Property Name="COMPRADO" Type="int" />
+    <Property Name="DESCUENTO" Type="int" />
+    <Property Name="FK_CATEGORIA" Type="int" Nullable="false" />
+    <Property Name="FK_ALMACEN" Type="int" Nullable="false" />
+    <Property Name="ACTIVO" Type="int" Nullable="false" />
+    <Property Name="CREATED_AT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PRODUCTO_PEDIDO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CANTIDAD" Type="int" Nullable="false" />
+    <Property Name="COSTO" Type="float" Nullable="false" />
+    <Property Name="CRATED_AT" Type="datetime" Nullable="false" />
+    <Property Name="FK_PRODUCTO_PROVEEDOR" Type="int" Nullable="false" />
+    <Property Name="FK_PEDIDO_PROVEEDOR" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCTO_PROMOCION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCUENTO" Type="int" Nullable="false" />
+    <Property Name="PLUS" Type="int" Nullable="false" />
+    <Property Name="ACTIVE" Type="int" />
+    <Property Name="CREATED_AT" Type="datetime" Nullable="false" />
+    <Property Name="FK_TIPO_PROMOCION" Type="int" Nullable="false" />
+    <Property Name="FK_PROMOCION" Type="int" Nullable="false" />
+    <Property Name="FK_PRODUCTO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCTO_PROVEEDOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="text" Nullable="false" />
+    <Property Name="PRECIO" Type="float" Nullable="false" />
+    <Property Name="GARANTIA" Type="int" />
+    <Property Name="CRATED_AT" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROMOCION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TITULO" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="AUTORIZADO" Type="int" />
+    <Property Name="FECHA_INICIAL" Type="date" Nullable="false" />
+    <Property Name="FECHA_FINAL" Type="date" Nullable="false" />
+    <Property Name="ACTIVO" Type="int" />
+  </EntityType>
+  <EntityType Name="PROVEEDOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RFC" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CREDITO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_PROMOCION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="APELLIDO" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="TEL" Type="int" Nullable="false" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="255" />
+    <Property Name="ACTIVO" Type="int" Nullable="false" />
+    <Property Name="FK_ID_ROLE" Type="int" Nullable="false" />
+    <Property Name="CREATED_AT" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CHAT__FK_DESTINA__7C4F7684">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="CHAT" Type="Self.CHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CHAT">
+        <PropertyRef Name="FK_DESTINATARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHAT__FK_REMITEN__7D439ABD">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="CHAT" Type="Self.CHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CHAT">
+        <PropertyRef Name="FK_REMITENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DEVOLUCIO__FK_PE__75A278F5">
+    <End Role="PEDIDO_PROVEEDOR" Type="Self.PEDIDO_PROVEEDOR" Multiplicity="1" />
+    <End Role="DEVOLUCION_PEDIDO" Type="Self.DEVOLUCION_PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEDIDO_PROVEEDOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DEVOLUCION_PEDIDO">
+        <PropertyRef Name="FK_PEDIDO_PROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DEVOLUCIO__FK_PR__76969D2E">
+    <End Role="PRODUCTO_PEDIDO" Type="Self.PRODUCTO_PEDIDO" Multiplicity="1" />
+    <End Role="DEVOLUCION_PEDIDO" Type="Self.DEVOLUCION_PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO_PEDIDO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DEVOLUCION_PEDIDO">
+        <PropertyRef Name="FK_PRODUCTO_PEDIDO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DIRECCION__FK_CL__3C69FB99">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="DIRECCION" Type="Self.DIRECCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DIRECCION">
+        <PropertyRef Name="FK_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FACTURA__FK_PEDI__6477ECF3">
+    <End Role="PEDIDO_PROVEEDOR" Type="Self.PEDIDO_PROVEEDOR" Multiplicity="1" />
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEDIDO_PROVEEDOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURA">
+        <PropertyRef Name="FK_PEDIDO_PROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FACTURA_P__FK_FA__68487DD7">
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="1" />
+    <End Role="FACTURA_PRODUCTO" Type="Self.FACTURA_PRODUCTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURA_PRODUCTO">
+        <PropertyRef Name="FK_FACTURA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FACTURA_P__FK_PR__693CA210">
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+    <End Role="FACTURA_PRODUCTO" Type="Self.FACTURA_PRODUCTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURA_PRODUCTO">
+        <PropertyRef Name="FK_PRODUCTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HISTORIAL__FK_PR__02FC7413">
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+    <End Role="HISTORIAL_PRECIO" Type="Self.HISTORIAL_PRECIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HISTORIAL_PRECIO">
+        <PropertyRef Name="FK_PRODUCTOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__IMAGEN_PR__FK_PR__4AB81AF0">
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+    <End Role="IMAGEN_PRODUCTO" Type="Self.IMAGEN_PRODUCTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IMAGEN_PRODUCTO">
+        <PropertyRef Name="FK_PRODUCTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDEN__FK_CLIENT__4222D4EF">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="ORDEN" Type="Self.ORDEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDEN">
+        <PropertyRef Name="FK_CLIENT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDEN__FK_METODO__4316F928">
+    <End Role="METODO_PAGO" Type="Self.METODO_PAGO" Multiplicity="1" />
+    <End Role="ORDEN" Type="Self.ORDEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="METODO_PAGO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDEN">
+        <PropertyRef Name="FK_METODO_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDEN_PRO__FK_OR__46E78A0C">
+    <End Role="ORDEN" Type="Self.ORDEN" Multiplicity="1" />
+    <End Role="ORDEN_PRODUCTO" Type="Self.ORDEN_PRODUCTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDEN_PRODUCTO">
+        <PropertyRef Name="FK_ORDEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDEN_PRO__FK_PR__45F365D3">
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+    <End Role="ORDEN_PRODUCTO" Type="Self.ORDEN_PRODUCTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDEN_PRODUCTO">
+        <PropertyRef Name="FK_PRODUCTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PEDIDO_PR__FK_PR__5FB337D6">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+    <End Role="PEDIDO_PROVEEDOR" Type="Self.PEDIDO_PROVEEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PEDIDO_PROVEEDOR">
+        <PropertyRef Name="FK_PROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PEDIDO_PR__FK_US__60A75C0F">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="PEDIDO_PROVEEDOR" Type="Self.PEDIDO_PROVEEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PEDIDO_PROVEEDOR">
+        <PropertyRef Name="FK_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCTO___FK_PE__71D1E811">
+    <End Role="PEDIDO_PROVEEDOR" Type="Self.PEDIDO_PROVEEDOR" Multiplicity="1" />
+    <End Role="PRODUCTO_PEDIDO" Type="Self.PRODUCTO_PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEDIDO_PROVEEDOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTO_PEDIDO">
+        <PropertyRef Name="FK_PEDIDO_PROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCTO___FK_PR__5629CD9C">
+    <End Role="PROMOCION" Type="Self.PROMOCION" Multiplicity="1" />
+    <End Role="PRODUCTO_PROMOCION" Type="Self.PRODUCTO_PROMOCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROMOCION">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTO_PROMOCION">
+        <PropertyRef Name="FK_PROMOCION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCTO___FK_PR__571DF1D5">
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+    <End Role="PRODUCTO_PROMOCION" Type="Self.PRODUCTO_PROMOCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTO_PROMOCION">
+        <PropertyRef Name="FK_PRODUCTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCTO___FK_PR__70DDC3D8">
+    <End Role="PRODUCTO_PROVEEDOR" Type="Self.PRODUCTO_PROVEEDOR" Multiplicity="1" />
+    <End Role="PRODUCTO_PEDIDO" Type="Self.PRODUCTO_PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO_PROVEEDOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTO_PEDIDO">
+        <PropertyRef Name="FK_PRODUCTO_PROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCTO___FK_TI__5535A963">
+    <End Role="TIPO_PROMOCION" Type="Self.TIPO_PROMOCION" Multiplicity="1" />
+    <End Role="PRODUCTO_PROMOCION" Type="Self.PRODUCTO_PROMOCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_PROMOCION">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTO_PROMOCION">
+        <PropertyRef Name="FK_TIPO_PROMOCION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCTO__FK_ALM__36B12243">
+    <End Role="ALMACEN" Type="Self.ALMACEN" Multiplicity="1" />
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ALMACEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTO">
+        <PropertyRef Name="FK_ALMACEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCTO__FK_CAT__35BCFE0A">
+    <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTO">
+        <PropertyRef Name="FK_CATEGORIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIO__FK_ID_R__276EDEB3">
+    <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="FK_ID_ROLE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ecommerceModelStoreContainer">
+    <EntitySet Name="AGENTE_VENTA" EntityType="Self.AGENTE_VENTA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ALMACEN" EntityType="Self.ALMACEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHAT" EntityType="Self.CHAT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEVOLUCION_PEDIDO" EntityType="Self.DEVOLUCION_PEDIDO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DIRECCION" EntityType="Self.DIRECCION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FACTURA" EntityType="Self.FACTURA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FACTURA_PRODUCTO" EntityType="Self.FACTURA_PRODUCTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HISTORIAL_PRECIO" EntityType="Self.HISTORIAL_PRECIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IMAGEN_PRODUCTO" EntityType="Self.IMAGEN_PRODUCTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDEN" EntityType="Self.ORDEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDEN_PRODUCTO" EntityType="Self.ORDEN_PRODUCTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PEDIDO_PROVEEDOR" EntityType="Self.PEDIDO_PROVEEDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTO_PEDIDO" EntityType="Self.PRODUCTO_PEDIDO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTO_PROMOCION" EntityType="Self.PRODUCTO_PROMOCION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTO_PROVEEDOR" EntityType="Self.PRODUCTO_PROVEEDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROMOCION" EntityType="Self.PROMOCION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_PROMOCION" EntityType="Self.TIPO_PROMOCION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CHAT__FK_DESTINA__7C4F7684" Association="Self.FK__CHAT__FK_DESTINA__7C4F7684">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="CHAT" EntitySet="CHAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHAT__FK_REMITEN__7D439ABD" Association="Self.FK__CHAT__FK_REMITEN__7D439ABD">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="CHAT" EntitySet="CHAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DEVOLUCIO__FK_PE__75A278F5" Association="Self.FK__DEVOLUCIO__FK_PE__75A278F5">
+      <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
+      <End Role="DEVOLUCION_PEDIDO" EntitySet="DEVOLUCION_PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DEVOLUCIO__FK_PR__76969D2E" Association="Self.FK__DEVOLUCIO__FK_PR__76969D2E">
+      <End Role="PRODUCTO_PEDIDO" EntitySet="PRODUCTO_PEDIDO" />
+      <End Role="DEVOLUCION_PEDIDO" EntitySet="DEVOLUCION_PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DIRECCION__FK_CL__3C69FB99" Association="Self.FK__DIRECCION__FK_CL__3C69FB99">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="DIRECCION" EntitySet="DIRECCION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FACTURA__FK_PEDI__6477ECF3" Association="Self.FK__FACTURA__FK_PEDI__6477ECF3">
+      <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
+      <End Role="FACTURA" EntitySet="FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FACTURA_P__FK_FA__68487DD7" Association="Self.FK__FACTURA_P__FK_FA__68487DD7">
+      <End Role="FACTURA" EntitySet="FACTURA" />
+      <End Role="FACTURA_PRODUCTO" EntitySet="FACTURA_PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FACTURA_P__FK_PR__693CA210" Association="Self.FK__FACTURA_P__FK_PR__693CA210">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="FACTURA_PRODUCTO" EntitySet="FACTURA_PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HISTORIAL__FK_PR__02FC7413" Association="Self.FK__HISTORIAL__FK_PR__02FC7413">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="HISTORIAL_PRECIO" EntitySet="HISTORIAL_PRECIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__IMAGEN_PR__FK_PR__4AB81AF0" Association="Self.FK__IMAGEN_PR__FK_PR__4AB81AF0">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="IMAGEN_PRODUCTO" EntitySet="IMAGEN_PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDEN__FK_CLIENT__4222D4EF" Association="Self.FK__ORDEN__FK_CLIENT__4222D4EF">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="ORDEN" EntitySet="ORDEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDEN__FK_METODO__4316F928" Association="Self.FK__ORDEN__FK_METODO__4316F928">
+      <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
+      <End Role="ORDEN" EntitySet="ORDEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDEN_PRO__FK_OR__46E78A0C" Association="Self.FK__ORDEN_PRO__FK_OR__46E78A0C">
+      <End Role="ORDEN" EntitySet="ORDEN" />
+      <End Role="ORDEN_PRODUCTO" EntitySet="ORDEN_PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDEN_PRO__FK_PR__45F365D3" Association="Self.FK__ORDEN_PRO__FK_PR__45F365D3">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="ORDEN_PRODUCTO" EntitySet="ORDEN_PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PEDIDO_PR__FK_PR__5FB337D6" Association="Self.FK__PEDIDO_PR__FK_PR__5FB337D6">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PEDIDO_PR__FK_US__60A75C0F" Association="Self.FK__PEDIDO_PR__FK_US__60A75C0F">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCTO___FK_PE__71D1E811" Association="Self.FK__PRODUCTO___FK_PE__71D1E811">
+      <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
+      <End Role="PRODUCTO_PEDIDO" EntitySet="PRODUCTO_PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCTO___FK_PR__5629CD9C" Association="Self.FK__PRODUCTO___FK_PR__5629CD9C">
+      <End Role="PROMOCION" EntitySet="PROMOCION" />
+      <End Role="PRODUCTO_PROMOCION" EntitySet="PRODUCTO_PROMOCION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCTO___FK_PR__571DF1D5" Association="Self.FK__PRODUCTO___FK_PR__571DF1D5">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="PRODUCTO_PROMOCION" EntitySet="PRODUCTO_PROMOCION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCTO___FK_PR__70DDC3D8" Association="Self.FK__PRODUCTO___FK_PR__70DDC3D8">
+      <End Role="PRODUCTO_PROVEEDOR" EntitySet="PRODUCTO_PROVEEDOR" />
+      <End Role="PRODUCTO_PEDIDO" EntitySet="PRODUCTO_PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCTO___FK_TI__5535A963" Association="Self.FK__PRODUCTO___FK_TI__5535A963">
+      <End Role="TIPO_PROMOCION" EntitySet="TIPO_PROMOCION" />
+      <End Role="PRODUCTO_PROMOCION" EntitySet="PRODUCTO_PROMOCION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCTO__FK_ALM__36B12243" Association="Self.FK__PRODUCTO__FK_ALM__36B12243">
+      <End Role="ALMACEN" EntitySet="ALMACEN" />
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCTO__FK_CAT__35BCFE0A" Association="Self.FK__PRODUCTO__FK_CAT__35BCFE0A">
+      <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO__FK_ID_R__276EDEB3" Association="Self.FK__USUARIO__FK_ID_R__276EDEB3">
+      <End Role="ROL" EntitySet="ROL" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

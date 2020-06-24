@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ecommerceModelStoreContainer" CdmEntityContainer="ecommerceEntities">
+    <EntitySetMapping Name="AGENTE_VENTA">
+      <EntityTypeMapping TypeName="ecommerceModel.AGENTE_VENTA">
+        <MappingFragment StoreEntitySet="AGENTE_VENTA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CRATED_AT" ColumnName="CRATED_AT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ALMACEN">
+      <EntityTypeMapping TypeName="ecommerceModel.ALMACEN">
+        <MappingFragment StoreEntitySet="ALMACEN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="CAPACIDAD" ColumnName="CAPACIDAD" />
+          <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CATEGORIA">
+      <EntityTypeMapping TypeName="ecommerceModel.CATEGORIA">
+        <MappingFragment StoreEntitySet="CATEGORIA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+          <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHAT">
+      <EntityTypeMapping TypeName="ecommerceModel.CHAT">
+        <MappingFragment StoreEntitySet="CHAT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MENSAJE" ColumnName="MENSAJE" />
+          <ScalarProperty Name="FK_DESTINATARIO" ColumnName="FK_DESTINATARIO" />
+          <ScalarProperty Name="FK_REMITENTE" ColumnName="FK_REMITENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEVOLUCION_PEDIDO">
+      <EntityTypeMapping TypeName="ecommerceModel.DEVOLUCION_PEDIDO">
+        <MappingFragment StoreEntitySet="DEVOLUCION_PEDIDO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="RAZON" ColumnName="RAZON" />
+          <ScalarProperty Name="CRATED_AT" ColumnName="CRATED_AT" />
+          <ScalarProperty Name="FK_PEDIDO_PROVEEDOR" ColumnName="FK_PEDIDO_PROVEEDOR" />
+          <ScalarProperty Name="FK_PRODUCTO_PEDIDO" ColumnName="FK_PRODUCTO_PEDIDO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIRECCION">
+      <EntityTypeMapping TypeName="ecommerceModel.DIRECCION">
+        <MappingFragment StoreEntitySet="DIRECCION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="COLONIA" ColumnName="COLONIA" />
+          <ScalarProperty Name="CALLE" ColumnName="CALLE" />
+          <ScalarProperty Name="CP" ColumnName="CP" />
+          <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+          <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+          <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+          <ScalarProperty Name="FK_CLIENTE" ColumnName="FK_CLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURA">
+      <EntityTypeMapping TypeName="ecommerceModel.FACTURA">
+        <MappingFragment StoreEntitySet="FACTURA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PAGO_TOTAL" ColumnName="PAGO_TOTAL" />
+          <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
+          <ScalarProperty Name="CRATED_AT" ColumnName="CRATED_AT" />
+          <ScalarProperty Name="FK_PEDIDO_PROVEEDOR" ColumnName="FK_PEDIDO_PROVEEDOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURA_PRODUCTO">
+      <EntityTypeMapping TypeName="ecommerceModel.FACTURA_PRODUCTO">
+        <MappingFragment StoreEntitySet="FACTURA_PRODUCTO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CRATED_AT" ColumnName="CRATED_AT" />
+          <ScalarProperty Name="FK_FACTURA" ColumnName="FK_FACTURA" />
+          <ScalarProperty Name="FK_PRODUCTO" ColumnName="FK_PRODUCTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMAGEN_PRODUCTO">
+      <EntityTypeMapping TypeName="ecommerceModel.IMAGEN_PRODUCTO">
+        <MappingFragment StoreEntitySet="IMAGEN_PRODUCTO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
+          <ScalarProperty Name="PRINCIPAL" ColumnName="PRINCIPAL" />
+          <ScalarProperty Name="FK_PRODUCTO" ColumnName="FK_PRODUCTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="METODO_PAGO">
+      <EntityTypeMapping TypeName="ecommerceModel.METODO_PAGO">
+        <MappingFragment StoreEntitySet="METODO_PAGO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDEN">
+      <EntityTypeMapping TypeName="ecommerceModel.ORDEN">
+        <MappingFragment StoreEntitySet="ORDEN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
+          <ScalarProperty Name="PAGADO" ColumnName="PAGADO" />
+          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+          <ScalarProperty Name="NUMERO_GUIA" ColumnName="NUMERO_GUIA" />
+          <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+          <ScalarProperty Name="FK_CLIENT" ColumnName="FK_CLIENT" />
+          <ScalarProperty Name="FK_METODO_PAGO" ColumnName="FK_METODO_PAGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDEN_PRODUCTO">
+      <EntityTypeMapping TypeName="ecommerceModel.ORDEN_PRODUCTO">
+        <MappingFragment StoreEntitySet="ORDEN_PRODUCTO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="FK_PRODUCTO" ColumnName="FK_PRODUCTO" />
+          <ScalarProperty Name="FK_ORDEN" ColumnName="FK_ORDEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEDIDO_PROVEEDOR">
+      <EntityTypeMapping TypeName="ecommerceModel.PEDIDO_PROVEEDOR">
+        <MappingFragment StoreEntitySet="PEDIDO_PROVEEDOR">
+          <ScalarProperty Name="FECHA_ACTUALIZACION" ColumnName="FECHA_ACTUALIZACION" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PRECIO_TOTAL" ColumnName="PRECIO_TOTAL" />
+          <ScalarProperty Name="PAGADO" ColumnName="PAGADO" />
+          <ScalarProperty Name="AUTORIZADO" ColumnName="AUTORIZADO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+          <ScalarProperty Name="CRATED_AT" ColumnName="CRATED_AT" />
+          <ScalarProperty Name="FK_PROVEEDOR" ColumnName="FK_PROVEEDOR" />
+          <ScalarProperty Name="FK_USUARIO" ColumnName="FK_USUARIO" />
+          <ScalarProperty Name="RAZON" ColumnName="RAZON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTO">
+      <EntityTypeMapping TypeName="ecommerceModel.PRODUCTO">
+        <MappingFragment StoreEntitySet="PRODUCTO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="PUNTO_REORDEN" ColumnName="PUNTO_REORDEN" />
+          <ScalarProperty Name="GARANTIA" ColumnName="GARANTIA" />
+          <ScalarProperty Name="TIENDA" ColumnName="TIENDA" />
+          <ScalarProperty Name="AUTORIZADO" ColumnName="AUTORIZADO" />
+          <ScalarProperty Name="COSTO" ColumnName="COSTO" />
+          <ScalarProperty Name="RAZON" ColumnName="RAZON" />
+          <ScalarProperty Name="COMPRADO" ColumnName="COMPRADO" />
+          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+          <ScalarProperty Name="FK_CATEGORIA" ColumnName="FK_CATEGORIA" />
+          <ScalarProperty Name="FK_ALMACEN" ColumnName="FK_ALMACEN" />
+          <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+          <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTO_PEDIDO">
+      <EntityTypeMapping TypeName="ecommerceModel.PRODUCTO_PEDIDO">
+        <MappingFragment StoreEntitySet="PRODUCTO_PEDIDO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="COSTO" ColumnName="COSTO" />
+          <ScalarProperty Name="CRATED_AT" ColumnName="CRATED_AT" />
+          <ScalarProperty Name="FK_PRODUCTO_PROVEEDOR" ColumnName="FK_PRODUCTO_PROVEEDOR" />
+          <ScalarProperty Name="FK_PEDIDO_PROVEEDOR" ColumnName="FK_PEDIDO_PROVEEDOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTO_PROMOCION">
+      <EntityTypeMapping TypeName="ecommerceModel.PRODUCTO_PROMOCION">
+        <MappingFragment StoreEntitySet="PRODUCTO_PROMOCION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+          <ScalarProperty Name="PLUS" ColumnName="PLUS" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+          <ScalarProperty Name="FK_TIPO_PROMOCION" ColumnName="FK_TIPO_PROMOCION" />
+          <ScalarProperty Name="FK_PROMOCION" ColumnName="FK_PROMOCION" />
+          <ScalarProperty Name="FK_PRODUCTO" ColumnName="FK_PRODUCTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTO_PROVEEDOR">
+      <EntityTypeMapping TypeName="ecommerceModel.PRODUCTO_PROVEEDOR">
+        <MappingFragment StoreEntitySet="PRODUCTO_PROVEEDOR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="GARANTIA" ColumnName="GARANTIA" />
+          <ScalarProperty Name="CRATED_AT" ColumnName="CRATED_AT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROMOCION">
+      <EntityTypeMapping TypeName="ecommerceModel.PROMOCION">
+        <MappingFragment StoreEntitySet="PROMOCION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="AUTORIZADO" ColumnName="AUTORIZADO" />
+          <ScalarProperty Name="FECHA_INICIAL" ColumnName="FECHA_INICIAL" />
+          <ScalarProperty Name="FECHA_FINAL" ColumnName="FECHA_FINAL" />
+          <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDOR">
+      <EntityTypeMapping TypeName="ecommerceModel.PROVEEDOR">
+        <MappingFragment StoreEntitySet="PROVEEDOR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="CREDITO" ColumnName="CREDITO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROL">
+      <EntityTypeMapping TypeName="ecommerceModel.ROL">
+        <MappingFragment StoreEntitySet="ROL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_PROMOCION">
+      <EntityTypeMapping TypeName="ecommerceModel.TIPO_PROMOCION">
+        <MappingFragment StoreEntitySet="TIPO_PROMOCION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="ecommerceModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+          <ScalarProperty Name="FK_ID_ROLE" ColumnName="FK_ID_ROLE" />
+          <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HISTORIAL_PRECIO">
+      <EntityTypeMapping TypeName="ecommerceModel.HISTORIAL_PRECIO">
+        <MappingFragment StoreEntitySet="HISTORIAL_PRECIO">
+          <ScalarProperty Name="PRECIOANTERIOR" ColumnName="PRECIOANTERIOR" />
+          <ScalarProperty Name="FECHA_SOLITUD" ColumnName="FECHA_SOLITUD" />
+          <ScalarProperty Name="OBSERVACIÓN" ColumnName="OBSERVACIÓN" />
+          <ScalarProperty Name="RAZON" ColumnName="RAZON" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="FECHA_ACTUALIZACION" ColumnName="FECHA_ACTUALIZACION" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="FK_PRODUCTOS" ColumnName="FK_PRODUCTOS" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
