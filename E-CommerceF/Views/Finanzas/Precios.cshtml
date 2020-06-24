@@ -20,47 +20,48 @@
                                 <th scope="col" class="sort" data-sort="name">Precios Nuevos</th>
                                 <th scope="col" class="sort" data-sort="budget">Fecha de alta</th>
                                 <th scope="col" class="sort" data-sort="status">Precio Actual</th>
+                                <th scope="col" class="sort" data-sort="status">Razon Cambio</th>
                                 <th scope="col" class="sort" data-sort="status">Precio Nuevo</th>
                                 <th scope="col" class="sort" data-sort="status">Historial</th>
-                                <th scope="col">Status</th>
-
                                 <th scope="col">Accion</th>
                             </tr>
                         </thead>
                         <tbody class="list">
                             @foreach (var item in Model)
                             {
-
+                                using (Html.BeginForm("editPreciosDetalles", "Finanzas"))
+                                {
                             <tr>
                                 <th scope="row">
+                                    <input hidden name="id" value="@item.Id">
                                     <div class="media align-items-center">
                                         <div class="media-body">
                                             <span class="name mb-0 text-sm">@item.PRODUCTO.NOMBRE</span>
                                         </div>
                                     </div>
                                 </th>
+
                                 <td>
                                     <span class="name mb-0 text-sm">@item.PRODUCTO.CREATED_AT</span>
                                 </td>
                                 <td class="budget">
                                     $ @item.PRODUCTO.PRECIO
                                 </td>
+                                <td class="text-right">
+                                    @item.RAZON
+                                </td>
                                 <td class="budget">
                                     $ @item.PRECIO
                                 </td>
                                 <td class="text-right">
-                                    <span class="name mb-0 text-sm"><a href="@Url.Action("PreciosHistorial","Finanzas", new {id = item.FK_PRODUCTOS})">Ver historial</a></span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-dot mr-4">
-                                        <i class="bg-gradient-yellow"></i>
-                                        <span class="status">Por Autorizar</span>
-                                    </span>
+                                    <span class="name mb-0 text-sm"><a href="@Url.Action("PreciosHistorial", "Finanzas", new { id = item.FK_PRODUCTOS })">Ver historial</a></span>
                                 </td>
                                 <td class="text-right">
-                                    <span class="name mb-0 text-sm"><a href="@Url.Action("PreciosDetalles","Finanzas", new {id = item.Id})">Ver detalle</a></span>
+                                    <input type="submit" class="btn btn-primary  btn-sm" value="Autorizar" name="estatus">
+                                    <input type="submit" class="btn btn-danger btn-sm" value="No autorizar" name="estatus">
                                 </td>
                             </tr>
+                                }
 
                             }
 
