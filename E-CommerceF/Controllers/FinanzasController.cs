@@ -19,7 +19,7 @@ namespace E_CommerceF.Controllers
         public ActionResult Pedidos()
         {
             ViewBag.showSuccessAlert = false;
-            var pedido = db.PEDIDO_PROVEEDOR.Where(d => d.ACTIVO == 0).OrderBy(d =>d.ID);
+            var pedido = db.PEDIDO_PROVEEDOR.Where(d => d.ACTIVO == 0).OrderBy(d => d.ID);
             return View(pedido);
         }
         public ActionResult PedidosDetalles(int id)
@@ -68,17 +68,39 @@ namespace E_CommerceF.Controllers
             var detalle = db.HISTORIAL_PRECIO.Where(d => d.FK_PRODUCTOS == id & (d.STATUS == 0 || d.STATUS == 2)).OrderBy(d => d.Id);
             return View(detalle);
         }
+        
+        public ActionResult aceptarPrecio(FormCollection formCollection)
+        {
+            String id = formCollection["id"];
+            int e = 0;
+            var precio = db.HISTORIAL_PRECIO.Find(int.Parse(id));
+            var producto = db.PRODUCTO.Find(precio.PRODUCTO.ID);
+            producto.PRECIO = precio.PRECIO;
+            precio.FECHA_ACTUALIZACION = System.DateTime.Now;
+            db.Entry(producto).State = System.Data.Entity.EntityState.Modified;
+            precio.STATUS = e;
+            db.Entry(precio).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Precios", "Finanzas");
 
+            }
+        [HttpPost]
+        public ActionResult rechazarPrecio(FormCollection formCollection)
+        {
+
+
+            return View();
+        }
         [HttpPost]
         public ActionResult editPreciosDetalles(FormCollection formCollection)
         {
 
             String id = formCollection["id"];
-            string estatus = formCollection["status"];
+            string estatus = formCollection["estatus"];
             string observaciones = formCollection["observaciones"];
             int e;
             var precio = db.HISTORIAL_PRECIO.Find(int.Parse(id));
-            if (estatus.Equals("Autorizado"))
+            if (estatus.Equals("Autorizar"))
             {
                 e = 0;
                 var producto = db.PRODUCTO.Find(precio.PRODUCTO.ID);
