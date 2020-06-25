@@ -13,6 +13,7 @@
                     <!-- Card header -->
                     <div class="card-header border-0">
                         <h3 class="mb-0 text-center">Autorizaciones de Compras</h3>
+
                     </div>
                     <!-- Light table -->
                     <div class="table-responsive">
@@ -20,66 +21,62 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="id">ID</th>
-                                    <th scope="col" class="sort" data-sort="name">Autorizaciones</th>
                                     <th scope="col" class="sort" data-sort="budget">Fecha</th>
                                     <th scope="col" class="sort" data-sort="budget">Proveedor</th>
+                                    <th scope="col" class="sort" data-sort="budget">Tipo de Pago</th>
                                     <th scope="col" class="sort" data-sort="status">Monto</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col" class="sort" data-sort="status">status</th>
                                     <th scope="col">Accion</th>
                                 </tr>
                             </thead>
                             <tbody class="list">
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        <td class="id">
-                                            @item.ID
-                                        </td>
-                                        <th scope="row">
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <span class="name mb-0 text-sm">Autorizacion de compra</span>
-                                                </div>
-                                            </div>
-                                        </th>
-                                        <td>
-                                            <span class="name mb-0 text-sm">@item.FECHA</span>
-                                        </td>
-                                        <td>
-                                            <span class="name mb-0 text-sm">@item.PROVEEDOR.NOMBRE</span>
-                                        </td>
-                                        <td class="budget">
-                                            $ @item.PRECIO_TOTAL
-                                        </td>
-                                        <td>
-                                            @if (item.AUTORIZADO == 1)
-                                            {
-                                                <span class="badge badge-dot mr-4">
-                                                    <i class="bg-gradient-yellow"></i>
-                                                    <span class="status">Por Autorizar</span>
-                                                </span>
-                                            }
-                                            @if (item.AUTORIZADO == 0)
-                                            {
-                                                <span class="badge badge-dot mr-4">
-                                                    <i class="bg-gradient-green"></i>
-                                                    <span class="status">Autorizado</span>
-                                                </span>
-                                            }
-                                            @if (item.AUTORIZADO == 2)
-                                            {
-                                                <span class="badge badge-dot mr-4">
-                                                    <i class="bg-gradient-red"></i>
-                                                    <span class="status">No Autorizado</span>
-                                                </span>
-                                            }
+                                <tr>
+                                    <td class="id">
+                                        @item.ID
+                                    </td>
+                                    <td>
+                                        <span class="name mb-0 text-sm">@item.FECHA</span>
+                                    </td>
+                                    <td>
+                                        <span class="name mb-0 text-sm">@item.PROVEEDOR.NOMBRE</span>
+                                    </td>
+                                    <td>
+                                        <span class="name mb-0 text-sm">Contado</span>
+                                    </td>
+                                    <td class="budget">
+                                        $ @item.PRECIO_TOTAL
+                                    </td>
+                                    <td>
+                                        @if (item.AUTORIZADO == 1)
+                                        {
+                                            <span class="badge badge-dot mr-4">
+                                                <i class="bg-gradient-yellow"></i>
+                                                <span class="status">Por Autorizar</span>
+                                            </span>
+                                        }
+                                        @if (item.AUTORIZADO == 0)
+                                        {
+                                            <span class="badge badge-dot mr-4">
+                                                <i class="bg-gradient-green"></i>
+                                                <span class="status">Autorizado</span>
+                                            </span>
+                                        }
+                                        @if (item.AUTORIZADO == 2)
+                                        {
+                                            <span class="badge badge-dot mr-4">
+                                                <i class="bg-gradient-red"></i>
+                                                <span class="status">No Autorizado</span>
+                                            </span>
+                                        }
 
-                                        </td>
-                                        <td class="text-right">
-                                            <a href=""></a>
-                                            <span class="name mb-0 text-sm"><a href="@Url.Action("PedidosDetalles","Finanzas", new {id = item.ID})">Ver detalle</a></span>
-                                        </td>
-                                    </tr>
+                                    </td>
+                                    <td >
+                                        <a href=""></a>
+                                        <span class="name mb-0 text-sm"><a href="@Url.Action("PedidosDetalles","Finanzas", new {id = item.ID})">Ver detalle</a></span>
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>

@@ -17,11 +17,13 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col" class="sort" data-sort="name">Precios Nuevos</th>
-                                <th scope="col" class="sort" data-sort="budget">Fecha de alta</th>
+                                <th scope="col" class="sort" data-sort="name">ID Producto</th>
+                                <th scope="col" class="sort" data-sort="name">Nombre Producto</th>
+                                <th scope="col" class="sort" data-sort="name">Marca</th>
                                 <th scope="col" class="sort" data-sort="status">Precio Actual</th>
                                 <th scope="col" class="sort" data-sort="status">Razon Cambio</th>
                                 <th scope="col" class="sort" data-sort="status">Precio Nuevo</th>
+                                <th scope="col" class="sort" data-sort="budget">Ultima Actualización</th>
                                 <th scope="col" class="sort" data-sort="status">Historial</th>
                                 <th scope="col">Accion</th>
                             </tr>
@@ -33,17 +35,25 @@
                                 {
                             <tr>
                                 <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">@item.PRODUCTO.ID</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th scope="row">
                                     <input hidden name="id" value="@item.Id">
+
                                     <div class="media align-items-center">
                                         <div class="media-body">
                                             <span class="name mb-0 text-sm">@item.PRODUCTO.NOMBRE</span>
                                         </div>
                                     </div>
                                 </th>
-
                                 <td>
-                                    <span class="name mb-0 text-sm">@item.PRODUCTO.CREATED_AT</span>
+                                    <span class="name mb-0 text-sm">Scribbe</span>
                                 </td>
+
                                 <td class="budget">
                                     $ @item.PRODUCTO.PRECIO
                                 </td>
@@ -52,6 +62,9 @@
                                 </td>
                                 <td class="budget">
                                     $ @item.PRECIO
+                                </td>
+                                <td>
+                                    <span class="name mb-0 text-sm">@item.PRODUCTO.CREATED_AT</span>
                                 </td>
                                 <td class="text-right">
                                     <span class="name mb-0 text-sm"><a href="@Url.Action("PreciosHistorial", "Finanzas", new { id = item.FK_PRODUCTOS })">Ver historial</a></span>
