@@ -12,6 +12,13 @@
                 <!-- Card header -->
                 <div class="card-header border-0">
                     <h3 class="mb-0 text-center">Historico del producto</h3>
+                    <form action="/Finanzas/Precios" method="post">
+                        <input type="submit" class="btn btn-primary  btn-sm" value="Regresar" name="estatus">
+
+                    </form>
+                </div>
+                <div>
+                    
                 </div>
                 <!-- Light table -->
                 <div class="table-responsive">
@@ -21,8 +28,8 @@
                                 <th scope="col" class="sort" data-sort="name">ID Producto</th>
                                 <th scope="col" class="sort" data-sort="name">Produto</th>
                                 <th scope="col" class="sort" data-sort="budget">Precio Anterior</th>
-                                <th scope="col" class="sort" data-sort="status">Precio Nuevo</th>
                                 <th scope="col">Razon</th>
+                                <th scope="col" class="sort" data-sort="status">Precio Nuevo</th>
                                 <th scope="col" class="sort" data-sort="status">Fecha Actualizacion</th>
 
                             </tr>
@@ -42,15 +49,17 @@
                                 <td>
                                     <span class="name mb-0 text-sm">@item.PRODUCTO.NOMBRE</span>
                                 </td>
+
                                 <td>
                                     <span class="name mb-0 text-sm">$ @item.PRECIOANTERIOR</span>
                                 </td>
                                 <td class="budget">
-                                    $ @item.PRECIO
+                                    @item.RAZON
                                 </td>
                                 <td class="budget">
-                                     @item.RAZON
+                                    $ @item.PRECIO
                                 </td>
+
                                 <td class="budget">
                                     @item.FECHA_ACTUALIZACION
                                 </td>

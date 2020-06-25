@@ -6,8 +6,13 @@
 
 <script>
     function buscar(){
-        confirm("Status Actualizado, se le notificará al departamento de compras");
+        confirm("Status Actualizado, Se ha autorizado la compra y se le notificará al departamento de compras");
 }
+</script>
+<script>
+    function buscar1() {
+        confirm("Status Actualizado, No se ha autorizado la compra. se le notificará al departamento de compras");
+    }
 </script>
 <div class="container-fluid mt--6">
     <div class="row">
@@ -15,74 +20,70 @@
         <div class="col-xl-8 order-xl-1">
             <div class="card">
                 <div class="card-header">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <h3 class="mb-0">Autorizacion de compra </h3>
-                        </div>
+                    <div class="card-header border-0">
+                        <h3 class="mb-0 text-center">Autorizacion de compra</h3>
+                        <form action="/Finanzas/Pedidos" method="post">
+                            <input type="submit" class="btn btn-primary  btn-sm" value="Regresar" name="estatus">
+
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        <form action="/Finanzas/editPedidosDetalles" method="post">
+                            <h6 class="heading-small text-muted mb-4">Datos de autorización</h6>
+                            <div class="pl-lg-4">
+                                <input type="text" hidden name="id" value="@Model.ID" class="form-control">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">ID</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" value="@Model.ID">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Fecha</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" value="@Model.FECHA">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Producto</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" value="Libreta Scribbe">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Cantidad</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" value="292">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Monto</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" value="@Model.PRECIO_TOTAL">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Razon</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" value="@Model.RAZON">
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-end">
+                                    <div class="col-4">
+                                        <button onclick="buscar()" type="submit" class="btn btn-primary" value="Autorizado" name="estatus">Autorizar</button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button onclick="buscar1()" type="submit" class="btn btn-danger" value="No Autorizado" name="estatus">No Autorizar</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="card-body">
-                    <form action="/Finanzas/editPedidosDetalles" method="post">
-                        <h6 class="heading-small text-muted mb-4">Datos de autorización</h6>
-                        <div class="pl-lg-4">
-                            <input type="text" hidden name="id" value="@Model.ID" class="form-control">
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Número de autorización</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" value="@Model.ID">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Fecha de pedido</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" value="@Model.FECHA">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Monto</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" value="@Model.PRECIO_TOTAL">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Razon</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" value="@Model.RAZON">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Observaciones</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="observaciones">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Status</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control" name="status">
-                                        <option>Autorizado</option>
-                                        <option>No autorizado</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div class="row justify-content-end">
-                                <div class="col-4">
-                                    <button onclick="buscar()" type="submit"  class="btn btn-primary">Aceptar</button>
-                                </div>
-                                <div class="col-4">
-                                    <button type="button" class="btn btn-danger">Cancelar</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 </div>

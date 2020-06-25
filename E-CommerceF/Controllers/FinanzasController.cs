@@ -32,7 +32,7 @@ namespace E_CommerceF.Controllers
         public ActionResult editPedidosDetalles(FormCollection formCollection)
         {
             string id = formCollection["id"];
-            string estatus = formCollection["status"];
+            string estatus = formCollection["estatus"];
             string observaciones = formCollection["observaciones"];
             int e;
             var orden = db.PEDIDO_PROVEEDOR.Find(int.Parse(id));
