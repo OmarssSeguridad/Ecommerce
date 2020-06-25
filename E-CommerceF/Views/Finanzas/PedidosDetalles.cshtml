@@ -6,8 +6,13 @@
 
 <script>
     function buscar(){
-        confirm("Status Actualizado, se le notificará al departamento de compras");
+        confirm("Status Actualizado, Se ha autorizado la compra y se le notificará al departamento de compras");
 }
+</script>
+<script>
+    function buscar1() {
+        confirm("Status Actualizado, No se ha autorizado la compra. se le notificará al departamento de compras");
+    }
 </script>
 <div class="container-fluid mt--6">
     <div class="row">
@@ -66,23 +71,12 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label">status</label>
-                                    <div class="col-sm-8">
-                                        <select class="form-control" name="status">
-                                            <option>autorizado</option>
-                                            <option>no autorizado</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
                                 <div class="row justify-content-end">
                                     <div class="col-4">
                                         <button onclick="buscar()" type="submit" class="btn btn-primary" value="Autorizado" name="estatus">Autorizar</button>
                                     </div>
                                     <div class="col-4">
-                                        <button onclick="buscar()" type="submit" class="btn btn-danger" value="No Autorizado" name="estatus">No Autorizar</button>
+                                        <button onclick="buscar1()" type="submit" class="btn btn-danger" value="No Autorizado" name="estatus">No Autorizar</button>
                                     </div>
                                 </div>
 
